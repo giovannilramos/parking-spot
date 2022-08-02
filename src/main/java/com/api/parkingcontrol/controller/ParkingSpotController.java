@@ -23,9 +23,9 @@ import java.util.UUID;
 public class ParkingSpotController {
     private final CreateParkingSpotService createParkingSpotService;
     private final ListParkingSpotService listParkingSpotService;
-    private final GetByIdParkingSportService getByIdParkingSportService;
-    private final UpdateParkingSportService updateParkingSportService;
-    private final DeleteParkingSportService deleteParkingSportService;
+    private final GetByIdParkingSpotService getByIdParkingSpotService;
+    private final UpdateParkingSpotService updateParkingSpotService;
+    private final DeleteParkingSpotService deleteParkingSpotService;
 
 
     @PostMapping
@@ -41,18 +41,18 @@ public class ParkingSpotController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ParkingSpotByIdResponse> getParkingSpot(@PathVariable(value = "id") final UUID id) {
-        return ResponseEntity.status(HttpStatus.OK).body(getByIdParkingSportService.findById(id));
+        return ResponseEntity.status(HttpStatus.OK).body(getByIdParkingSpotService.findById(id));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteParkingSpot(@PathVariable(value = "id") final UUID id) {
-        deleteParkingSportService.deleteParkingSpot(id);
+        deleteParkingSpotService.deleteParkingSpot(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Void> updateParkingSpot(@PathVariable(value = "id") final UUID id, @RequestBody final ParkingSpotRequest parkingSpotRequest) {
-        updateParkingSportService.updateParkingSpot(id, parkingSpotRequest);
+        updateParkingSpotService.updateParkingSpot(id, parkingSpotRequest);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 

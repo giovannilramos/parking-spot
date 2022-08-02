@@ -5,14 +5,13 @@ import com.api.parkingcontrol.repositories.ParkingSpotRepository;
 import com.api.utils.StatusCode;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestClientException;
 
 import javax.transaction.Transactional;
 import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class DeleteParkingSportService {
+public class DeleteParkingSpotService {
     private final ParkingSpotRepository parkingSpotRepository;
 
     @Transactional
