@@ -4,7 +4,7 @@ import com.api.parkingcontrol.request.ParkingSpotRequest;
 import com.api.parkingcontrol.response.ParkingSpotByIdResponse;
 import com.api.parkingcontrol.response.ParkingSpotResponse;
 import com.api.parkingcontrol.services.*;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -19,7 +19,7 @@ import java.util.UUID;
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/parking-spot")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ParkingSpotController {
     private final CreateParkingSpotService createParkingSpotService;
     private final ListParkingSpotService listParkingSpotService;

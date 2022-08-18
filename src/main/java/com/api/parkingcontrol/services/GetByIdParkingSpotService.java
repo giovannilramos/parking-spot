@@ -5,23 +5,23 @@ import com.api.parkingcontrol.helper.ParkingSpotHelper;
 import com.api.parkingcontrol.repositories.ParkingSpotRepository;
 import com.api.parkingcontrol.response.ParkingSpotByIdResponse;
 import com.api.utils.StatusCode;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class GetByIdParkingSpotService {
     private final ParkingSpotRepository parkingSpotRepository;
 
     public ParkingSpotByIdResponse findById(final UUID id) {
-        final var parkingSpotModelOptional = parkingSpotRepository.findById(id);
-        if (parkingSpotModelOptional.isEmpty()) {
+        final var parkingSpotOptional = parkingSpotRepository.findById(id);
+        if (parkingSpotOptional.isEmpty()) {
             throw new NotFoundException("Resource not found", StatusCode.NOT_FOUND.getStatusCode());
         }
         final var parkingSpotByIdResponse = new ParkingSpotByIdResponse();
-        final var parkingSpot = parkingSpotModelOptional.get();
+        final var parkingSpot = parkingSpotOptional.get();
 
         ParkingSpotHelper.parkingSpotByIdSetResponse(parkingSpotByIdResponse, parkingSpot);
         return parkingSpotByIdResponse;

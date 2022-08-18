@@ -3,7 +3,7 @@ package com.api.parkingcontrol.services;
 import com.api.parkingcontrol.helper.ParkingSpotHelper;
 import com.api.parkingcontrol.repositories.ParkingSpotRepository;
 import com.api.parkingcontrol.response.ParkingSpotResponse;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ListParkingSpotService {
-    final ParkingSpotRepository parkingSpotRepository;
+    private final ParkingSpotRepository parkingSpotRepository;
 
     public List<ParkingSpotResponse> getAllParkingSpot(final Pageable pageable) {
         final var parkingSpotList = parkingSpotRepository.findAll(pageable);

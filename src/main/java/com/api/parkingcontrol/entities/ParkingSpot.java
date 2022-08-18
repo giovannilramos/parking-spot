@@ -1,8 +1,7 @@
 package com.api.parkingcontrol.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
@@ -14,8 +13,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "TB_PARKING_SPOT")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class ParkingSpot implements Serializable {
     @Id
     @GeneratedValue(generator = "uuid2")
